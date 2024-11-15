@@ -75,7 +75,7 @@ const Dashboard = ({userData}) => {
           profileImage={userData.profileImage}
         />
 
-        <div className="p-5 space-y-6">
+        <div className="mt-20 p-2 sm:p-5 space-y-6">
          {pathname.includes("home")&& <FeatureActions />}
           <div className="grid grid-cols-1 xl:grid-cols-3 gap-3">
             <div className="lg:col-span-2 space-y-6">

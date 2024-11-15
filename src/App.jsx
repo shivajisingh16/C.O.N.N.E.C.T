@@ -11,6 +11,8 @@ import EventPage from "./components/EventPage";
 import { eventData } from "./data";
 import EventScheduler from "./components/EventScheduler";
 import CreatePost from "./components/CreatePost";
+import LoginPage from "./components/LoginPage";
+import SignupPage from "./components/SignupPage";
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   useEffect(() => {
@@ -160,6 +162,8 @@ function App() {
           <Route path="createpost" element={<CreatePost/>} />
           <Route path="events" element={<EventPage eventsData={eventData}/>} />
         </Route>
+        <Route path="/login" element={<LoginPage/>} />
+        <Route path="/signup" element={<SignupPage/>} />
       </Routes>
     </>
   );

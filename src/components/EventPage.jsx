@@ -65,7 +65,7 @@ const EventPage = ({ eventsData }) => {
   };
 
   return (
-    <div className="w-full  bg-gradient-to-br from-purple-100 via-white to-blue-200 p-6 h-[520px] xl:h-[760px] overflow-y-scroll rounded-lg">
+    <div className="w-full  bg-gradient-to-br from-purple-100 via-white to-blue-200 p-3 sm:p-6 h-[520px] xl:h-[760px] overflow-y-scroll rounded-lg">
       {/* Page Header with Toggle, Filter, and Sort */}
       <div className="flex flex-col justify-between items-center mb-8 gap-6">
         <h1 className="text-3xl  font-bold text-gray-800 flex-grow">
@@ -135,12 +135,12 @@ const EventPage = ({ eventsData }) => {
 
       {/* Event Details Modal */}
       {selectedEvent && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="space-y-3 bg-transparent backdrop-blur-xl bg-cyan-200/30 p-6 rounded-lg shadow-xl w-[700px] max-h-[500px] overflow-y-scroll">
-            <h2 className="text-2xl font-semibold text-indigo-600">
+        <div className="fixed inset-0 backdrop-blur-md bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="space-y-4 border-[2px]   bg-gray-700 p-6 rounded-xl shadow-xl w-[90vw] md:w-[700px] min-h-[300px] max-h-[500px] overflow-y-scroll">
+            <h2 className="text-xl sm:text-2xl font-bold text-indigo-700 bg-indigo-100 px-3 py-1 rounded-lg w-fit border-[2px] border-indigo-500">
               {selectedEvent.title}
             </h2>
-            <p className="text-gray-700 mt-1 text-xs sm:text-sm">
+            <p className="text-white/70 mt-1 text-xs sm:text-sm">
               Date: {selectedEvent.date} | Location: {selectedEvent.location}
             </p>
             <p className="text-white/80 mt-2 text-sm sm:text-base">
@@ -179,28 +179,29 @@ const EventPage = ({ eventsData }) => {
                 <p className="text-gray-600 text-sm sm:text-base">
                   {event.date} | {event.location}
                 </p>
+               
+                <div className="flex gap-4 mt-2 flex-wrap">
                 <button
                   onClick={() => setSelectedEvent(event)}
-                  className="mt-2 px-5 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 text-sm sm:text-base"
+                  className=" px-3 py-1 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 text-sm sm:text-base"
                 >
                   View Details
                 </button>
-                <div className="flex gap-4 mt-2 flex-wrap">
                   <button
                     onClick={() => handleRSVP(event)}
-                    className="px-5 py-2 rounded-lg bg-green-500 text-white hover:bg-green-600 text-sm sm:text-base"
+                    className="px-3 py-1 rounded-lg bg-green-500 text-white hover:bg-green-600 text-sm sm:text-base"
                   >
                     RSVP
                   </button>
                   <button
                     onClick={() => handleSetReminder(event)}
-                    className="px-5 py-2 rounded-lg bg-yellow-400 text-white hover:bg-yellow-500 text-sm sm:text-base"
+                    className="px-3 py-1 rounded-lg bg-yellow-400 text-white hover:bg-yellow-500 text-sm sm:text-base"
                   >
                     Set Reminder
                   </button>
                   <button
                     onClick={() => handleBookmark(event)}
-                    className={`px-5 py-2 rounded-lg ${
+                    className={`px-3 py-1 rounded-lg ${
                       bookmarks.includes(event)
                         ? "bg-yellow-400"
                         : "bg-gray-300"
@@ -208,12 +209,12 @@ const EventPage = ({ eventsData }) => {
                   >
                     {bookmarks.includes(event) ? "Remove Bookmark" : "Bookmark"}
                   </button>
-                  <button
+                  {/* <button
                     onClick={() => handleShare(event)}
                     className="px-5 py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 text-sm sm:text-base"
                   >
                     Share
-                  </button>
+                  </button> */}
                 </div>
               </div>
             ))
@@ -240,28 +241,28 @@ const EventPage = ({ eventsData }) => {
                 <p className="text-gray-600 text-sm sm:text-base">
                   {event.date} | {event.location}
                 </p>
+                <div className="flex gap-4 mt-2 flex-wrap items-center ">
                 <button
                   onClick={() => setSelectedEvent(event)}
-                  className="mt-2 px-5 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 text-sm sm:text-base"
+                  className=" px-3 py-1 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 text-sm sm:text-base"
                 >
                   View Details
                 </button>
-                <div className="flex gap-4 mt-2 flex-wrap">
                   <button
                     onClick={() => handleRSVP(event)}
-                    className="px-5 py-2 rounded-lg bg-green-500 text-white hover:bg-green-600 text-sm sm:text-base"
+                    className="px-3 py-1 rounded-lg bg-green-500 text-white hover:bg-green-600 text-sm sm:text-base"
                   >
                     RSVP
                   </button>
                   <button
                     onClick={() => handleSetReminder(event)}
-                    className="px-5 py-2 rounded-lg bg-yellow-400 text-white hover:bg-yellow-500 text-sm sm:text-base"
+                    className="px-3 py-1 rounded-lg bg-yellow-400 text-white hover:bg-yellow-500 text-sm sm:text-base"
                   >
                     Set Reminder
                   </button>
                   <button
                     onClick={() => handleBookmark(event)}
-                    className={`px-5 py-2 rounded-lg ${
+                    className={`px-3 py-1 rounded-lg ${
                       bookmarks.includes(event)
                         ? "bg-yellow-400"
                         : "bg-gray-300"
@@ -269,12 +270,12 @@ const EventPage = ({ eventsData }) => {
                   >
                     {bookmarks.includes(event) ? "Remove Bookmark" : "Bookmark"}
                   </button>
-                  <button
+                  {/* <button
                     onClick={() => handleShare(event)}
-                    className="px-5 py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 text-sm sm:text-base"
+                    className="px-3 py-1 rounded-lg bg-blue-500 text-white hover:bg-blue-600 text-sm sm:text-base"
                   >
                     Share
-                  </button>
+                  </button> */}
                 </div>
               </div>
             ))

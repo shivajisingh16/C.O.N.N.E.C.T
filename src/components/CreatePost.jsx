@@ -119,9 +119,9 @@ const CreatePost = () => {
           accept="image/*,video/*"
           multiple
           onChange={handleMediaChange}
-          className="w-full mt-2 p-3 border-2 text-center  border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full mt-2 p-3 border-2  border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
-        <div className="mt-4 flex flex-wrap gap-5">
+        <div className="mt-4 flex flex-wrap gap-5 w-full">
           {formData.media.map((media, index) => (
             <div key={index} className="relative  mb-4">
               {media.type === 'image' && (
@@ -137,7 +137,7 @@ const CreatePost = () => {
               )}
               {media.type === 'video' && (
                <div className='p-2 bg-green-100 border-[2px] border-green-500 rounded-lg flex gap-2 items-center w-fit'>
-                 <video controls className="w-[300px] aspect-video object-cover rounded-lg">
+                 <video controls className="w-[60vw]  sm:w-[300px] aspect-video object-cover rounded-lg">
                   <source src={media.url} type="video/mp4" />
                 </video>
                  <button
@@ -155,10 +155,10 @@ const CreatePost = () => {
       </div>
 
       {/* Save Draft and Preview Post */}
-      <div className="flex justify-between mb-6">
+      <div className="flex justify-between mb-6 border-b border-black pb-8">
         <button
           onClick={handleSaveDraft}
-          className="px-4 py-2 bg-gray-600 text-white rounded-lg shadow-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
+          className="px-4 py-2 bg-green-500 text-white rounded-lg shadow-lg hover:bg-green-700 "
         >
           Save Draft
         </button>
@@ -173,8 +173,8 @@ const CreatePost = () => {
       {/* Post Preview */}
       {postPreview && (formData.message || formData.media.length>0) &&  (
         <div className="mb-6">
-          <h3 className="font-semibold text-xl mb-2">Post Preview</h3>
-          <div className="flex items-center mb-4">
+          <h3 className="font-semibold text-xl mb-2 bg-purple-100 w-fit px-4 py-1 rounded-md border-[2px] border-purple-500 text-purple-700">Post Preview</h3>
+          <div className="flex items-center mt-8 mb-4">
             <img
               src={"" || placeholderImage} // Default profile image
               alt="User Avatar"
@@ -182,38 +182,31 @@ const CreatePost = () => {
             />
             <span className="font-semibold">Username</span>
           </div>
-          <div
-            className="mb-4 text-gray-800"
-            dangerouslySetInnerHTML={{ __html: formData.message }} // Render HTML content safely
-          />
+         {formData.message &&
+           <div
+           className="mb-4 text-black rounded-lg border shadow-lg w-fit  border-gray-300 p-2 px-4"
+           dangerouslySetInnerHTML={{ __html: formData.message }} // Render HTML content safely
+         />
+         }
+          <div className=' flex flex-wrap gap-5 w-full '>
           {formData.media.map((media, index) => (
             <div key={index} className="mt-4">
               {media.type === 'image' && (
                <div className='p-2 bg-green-100 border-[2px] border-green-500 rounded-lg flex gap-2 items-center w-fit'>
                  <img src={media.url} alt="Preview" className=" w-[100px] aspect-video object-cover rounded-lg" />
-                 <button
-                onClick={() => handleRemoveMedia(index)}
-                className=" bg-red-500 text-white  w-6 aspect-square rounded-full hover:bg-red-600"
-              >
-                &times;
-              </button>
+              
                </div>
               )}
                {media.type === 'video' && (
                <div className='p-2 bg-green-100 border-[2px] border-green-500 rounded-lg flex gap-2 items-center w-fit'>
-                 <video controls className="w-[300px] aspect-video object-cover rounded-lg">
+                 <video controls className=" w-[60vw] sm:w-[300px] aspect-video object-cover rounded-lg">
                   <source src={media.url} type="video/mp4" />
                 </video>
-                 <button
-                 onClick={() => handleRemoveMedia(index)}
-                 className=" bg-red-500 text-white  w-6 aspect-square rounded-full hover:bg-red-600"
-               >
-                 &times;
-               </button>
                </div>
               )}
             </div>
           ))}
+          </div>
         </div>
       )}
 

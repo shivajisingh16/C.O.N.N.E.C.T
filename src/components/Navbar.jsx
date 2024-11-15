@@ -1,5 +1,5 @@
-// src/components/Navbar.tsx
-import React, { useState, useEffect } from "react";
+
+import React  from "react";
 import link from "../assets/link.png";
 import {
   LayoutDashboard,
@@ -30,7 +30,7 @@ const Navbar = ({
   ];
 
   return (
-    <nav className=" sticky top-0 z-20 bg-white border-b shadow-sm">
+    <nav className=" fixed backdrop-blur-lg right-0 left-0 lg:left-52 top-0 z-20 bg-transparent border-b shadow-lg bg-purple-100/50 shadow-purple-100">
       <div className="flex items-center justify-between p-4 lg:p-6">
         <div className="flex items-center gap-4">
           <button
@@ -41,7 +41,7 @@ const Navbar = ({
           </button>
 
           {/* Desktop Navigation Items */}
-          <div className="hidden lg:flex items-center gap-6 xl:pl-10">
+          <div className="hidden lg:flex items-center gap-6 lg:pl-10">
             {navItems.map((item, index) => (
               <NavLink
                 to={item.to}
@@ -107,7 +107,7 @@ const Navbar = ({
             <input
               type="search"
               placeholder="Search..."
-              className="sidebar pl-10 pr-4 py-1 w-28 sm:w-48 md:w-64 lg:w-44 xl:w-60 rounded-full border shadow-md
+              className="sidebar pl-10 pr-4 py-1 w-28 sm:w-48 md:w-64 lg:w-32 xl:w-60 rounded-full border shadow-md
                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
             />
           </div>

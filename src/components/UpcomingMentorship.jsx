@@ -7,10 +7,10 @@ function UpcomingMentorship({mentorships}) {
    <div className=' h-[500px] overflow-y-scroll'>
    {mentorships.map((mentorship,idx)=>(
      <div key={idx} className='flex flex-col gap-4 sm:flex-row items-center shadow-lg mx-1 my-3 rounded-xl p-2'>
-       <div className='w-[30%]'>
-         <img className=' h-22 sm:h-32 md:h-20  aspect-square rounded-lg' src={mentorship.img || eventPlaceholderImage} alt="" />
+       <div className='w-[90%] sm:w-[30%]'>
+         <img className=' h-22 sm:h-32 md:h-20  aspect-video rounded-lg' src={mentorship.img || eventPlaceholderImage} alt="" />
        </div>
-       <div className='text-sm w-[70%] text-gray-500 space-y-1'>
+       <div className='text-sm w-full p-2  sm:w-[70%] text-gray-500 space-y-1'>
          <h3 className='text-lg text-gray-700 font-semibold mb-2'>{mentorship.name}</h3>
          <p ><span className=' font-semibold'>Organized By :</span> { mentorship.organizedBy}</p>
          <p><span className=' font-semibold'>Sessions Conducted :</span> { mentorship.sessionsConducted}</p>

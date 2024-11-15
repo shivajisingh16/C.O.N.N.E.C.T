@@ -11,13 +11,13 @@ const Achievements = ({ credits, sessions, followers, eventsHosted }) => {
         <div className=" w-[35%] hidden sm:block">
             <img className="h-44 md:h-56 aspect-square rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl_JGe9jHbqmKFCbviRliUl8z80kOc_-t0MAJx5I92G1daPnY5kySpVhpkjT7L-6cbn-E&usqp=CAU" alt="" />
         </div>
-        <div className="flex justify-around items-center space-x-6 flex-col gap-6">
+        <div className="flex justify-around items-center  flex-col gap-6">
           <div className="text-center flex gap-5 items-center">
             <img src={coin} className="h-8" alt="" />
             <p className="font-semibold  ">Total Credits Secured</p>
             <span className="text-green-600 font-bold text-4xl">{credits}</span>
           </div>
-          <div className="flex gap-6">
+          <div className="flex  gap-6">
             <div className="text-center">
               <span className="font-bold text-4xl text-purple-500">{sessions}</span>
               <p className="text-sm text-gray-500">
